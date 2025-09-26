@@ -29,6 +29,7 @@ persistence:
 credentials:
   # existingSecret: my-minio-credentials
   existingSecret: ""
+  existingSecretNamespace: ""
   minioUserKey: AWS_ACCESS_KEY_ID
   minioPasswordKey: AWS_SECRET_ACCESS_KEY
 

@@ -65,7 +65,8 @@ Create the name of the service account to use
 Example for lookup function
 */}}
 {{- define "gen.secret" -}}
-{{- $existingSecret := lookup "v1" "Secret" .Release.Namespace (include "minio.fullname" .) -}}
+{{- $secretNamespace := default .Release.Namespace .Values.credentials.existingSecretNamespace -}}
+{{- $existingSecret := lookup "v1" "Secret" $secretNamespace (include "minio.fullname" .) -}}
 {{- if $existingSecret -}}
 {{/*
    Reusing existing secret data
